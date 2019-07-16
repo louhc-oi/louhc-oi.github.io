@@ -6,17 +6,37 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc></loc>
-     
+     <loc>https://louhc-oi.github.io/control/</loc>
+     <lastmod>2019-07-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc></loc>
-     
+     <loc>https://louhc-oi.github.io/miku/</loc>
+     <lastmod>2019-07-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://louhc-oi.github.io/learn/</loc>
+     <lastmod>2019-07-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://louhc-oi.github.io/black-tech/miku-tools/</loc>
+     <lastmod>2019-07-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://louhc-oi.github.io/black-tech/sui-yue-xiao-zhu/</loc>
+     <lastmod>2019-07-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://louhc-oi.github.io/black-tech/xiao-zhong-ruan-jian/</loc>
+     <lastmod>2019-07-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://louhc-oi.github.io/solution/CF618F/</loc>
      <lastmod>2019-07-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
