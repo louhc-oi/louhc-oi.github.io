@@ -1,0 +1,1053 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Louhc's blog">
+      
+      
+        <link rel="canonical" href="https://louhc-oi.github.io/learn/cantor-expansion/">
+      
+      
+        <meta name="author" content="Louhc">
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.1.0">
+    
+    
+      
+        <title>康托展开</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.982221ab.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.224b79ff.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#fb8c00">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.01ccdecf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans:300,400,400i,700|Fira+Mono">
+        <style>body,input{font-family:"Fira Sans","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Fira Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+      <link rel="manifest" href="../../manifest.webmanifest">
+    
+    
+      <link rel="stylesheet" href="../../_static/css/extra.css?v=12">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="orange" data-md-color-accent="pink">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#_1" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://louhc-oi.github.io" title="Hello,I am Louhc" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">school</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Hello,I am Louhc
+            </span>
+            <span class="md-header-nav__topic">
+              康托展开
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/louhc-oi/louhc-oi/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    louhc-oi/louhc-oi
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../.." title="louhc" class="md-tabs__link">
+          louhc
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../miku/" title="miku" class="md-tabs__link">
+          miku
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../" title="学习" class="md-tabs__link md-tabs__link--active">
+          学习
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../black-tech/" title="黑科技" class="md-tabs__link">
+          黑科技
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../solution/CF618F/" title="解题报告" class="md-tabs__link">
+          解题报告
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://louhc-oi.github.io" title="Hello,I am Louhc" class="md-nav__button md-logo">
+      
+        <i class="md-icon">school</i>
+      
+    </a>
+    Hello,I am Louhc
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/louhc-oi/louhc-oi/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    louhc-oi/louhc-oi
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      louhc
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        louhc
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="主页" class="md-nav__link">
+      主页
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../control/" title="仪表盘" class="md-nav__link">
+      仪表盘
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      miku
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        miku
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../miku/" title="miku" class="md-nav__link">
+      miku
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      学习
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        学习
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="学习" class="md-nav__link">
+      学习
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        康托展开
+      </label>
+    
+    <a href="./" title="康托展开" class="md-nav__link md-nav__link--active">
+      康托展开
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" title="1.康托展开" class="md-nav__link">
+    1.康托展开
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" title="双语代码（滑稽" class="md-nav__link">
+    双语代码（滑稽
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#c98111417" title="C++98/11/14/17" class="md-nav__link">
+    C++98/11/14/17
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pascal" title="Pascal" class="md-nav__link">
+    Pascal
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" title="2.逆康托展开" class="md-nav__link">
+    2.逆康托展开
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" title="代码" class="md-nav__link">
+    代码
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+        
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      黑科技
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        黑科技
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../black-tech/" title="写在前面" class="md-nav__link">
+      写在前面
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../black-tech/miku-tools/" title="miku tools" class="md-nav__link">
+      miku tools
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../black-tech/sui-yue-xiao-zhu/" title="岁月小筑" class="md-nav__link">
+      岁月小筑
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../black-tech/xiao-zhong-ruan-jian/" title="小众软件" class="md-nav__link">
+      小众软件
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      解题报告
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        解题报告
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../solution/CF618F/" title="CF618F Double Knapsack" class="md-nav__link">
+      CF618F Double Knapsack
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" title="1.康托展开" class="md-nav__link">
+    1.康托展开
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" title="双语代码（滑稽" class="md-nav__link">
+    双语代码（滑稽
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#c98111417" title="C++98/11/14/17" class="md-nav__link">
+    C++98/11/14/17
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pascal" title="Pascal" class="md-nav__link">
+    Pascal
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" title="2.逆康托展开" class="md-nav__link">
+    2.逆康托展开
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" title="代码" class="md-nav__link">
+    代码
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+        
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/louhc-oi/louhc-oi/blob/master/docs/learn/cantor-expansion/index.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="_1">康托展开<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="1">1.康托展开<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<p>康托展开真是个神奇的东西。<br />
+除了本题用于求某排列的排名外，康托展开一般用于哈希，不过我也没做到过这样的哈希题。
+先给你柿子。<br />
+$$
+ans=1+\sum_{i=1}^{n} A[i]\times(n-i)!
+$$<br />
+其中<span><span class="MathJax_Preview">A[i]</span><script type="math/tex">A[i]</script></span>代表<span><span class="MathJax_Preview">\sum_{j=i}^{n}[a[j] &lt; a[i]]</span><script type="math/tex">\sum_{j=i}^{n}[a[j] < a[i]]</script></span><br />
+怎么来理解这个柿子呢？想象构造出字典序比当前排列小的有几个排列。
+枚举到<span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span>表示<span><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span>到<span><span class="MathJax_Preview">i-1</span><script type="math/tex">i-1</script></span>和原来的排列一样,<span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span>位肯定不一样,之后咋样都行。<br />
+既然到<span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span>位不一样，那么字典序大小其实就是取决于<span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span>位。很明显，第<span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span>位肯定要小于<span><span class="MathJax_Preview">a[i]</span><script type="math/tex">a[i]</script></span>。然后只要把<span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span>后面小于<span><span class="MathJax_Preview">a[i]</span><script type="math/tex">a[i]</script></span>的数交换到<span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span>位,后面随便排就行了。<br />
+很明显，这样枚举可以做到不重不漏。因为要求的是排名,所以<span><span class="MathJax_Preview">ans+=1</span><script type="math/tex">ans+=1</script></span>。<br />
+当然要用树状数组优化一下，复杂度是<span><span class="MathJax_Preview">O(nlgn)</span><script type="math/tex">O(nlgn)</script></span>的。</p>
+<h3 id="_2">双语代码（滑稽<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p><del>写Pascal就是为了卡常数,加O2秒杀C++)</del></p>
+<h4 id="c98111417">C++98/11/14/17<a class="headerlink" href="#c98111417" title="Permanent link">&para;</a></h4>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">#include</span><span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="cp">#define MAXN 1000005</span>
+<span class="cp">#define rgt register</span>
+<span class="cp">#define mod 998244353</span>
+
+<span class="kt">int</span> <span class="n">N</span><span class="p">,</span> <span class="n">a</span><span class="p">[</span><span class="n">MAXN</span><span class="p">],</span> <span class="n">fac</span><span class="p">,</span> <span class="n">c</span><span class="p">[</span><span class="n">MAXN</span><span class="p">],</span> <span class="n">ans</span><span class="p">;</span>
+<span class="kt">char</span> <span class="o">*</span><span class="n">p</span><span class="p">;</span>
+
+<span class="kr">inline</span> <span class="kt">void</span> <span class="nf">read</span><span class="p">(</span> <span class="n">rgt</span> <span class="kt">int</span> <span class="o">&amp;</span><span class="n">x</span> <span class="p">){</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="k">while</span><span class="p">(</span> <span class="o">!</span><span class="n">isdigit</span><span class="p">(</span><span class="o">*</span><span class="n">p</span><span class="p">)</span> <span class="p">)</span> <span class="o">++</span><span class="n">p</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span> <span class="n">isdigit</span><span class="p">(</span><span class="o">*</span><span class="n">p</span><span class="p">)</span> <span class="p">)</span> <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">+</span> <span class="p">(</span> <span class="o">*</span><span class="n">p</span> <span class="o">&amp;</span> <span class="mi">15</span> <span class="p">),</span> <span class="o">++</span><span class="n">p</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="n">scanf</span><span class="p">(</span> <span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">N</span> <span class="p">),</span> <span class="n">fac</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">char</span><span class="p">[</span><span class="n">N</span> <span class="o">*</span> <span class="mi">8</span> <span class="o">+</span> <span class="mi">100</span><span class="p">],</span>
+    <span class="n">fread</span><span class="p">(</span> <span class="n">p</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">N</span> <span class="o">*</span> <span class="mi">8</span> <span class="o">+</span> <span class="mi">100</span><span class="p">,</span> <span class="n">stdin</span> <span class="p">);</span>
+    <span class="k">for</span> <span class="p">(</span> <span class="n">rgt</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">N</span><span class="p">;</span> <span class="n">i</span><span class="p">;</span> <span class="o">--</span><span class="n">i</span> <span class="p">)</span> <span class="n">read</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+    <span class="k">for</span> <span class="p">(</span> <span class="n">rgt</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">j</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">N</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span> <span class="p">){</span>
+        <span class="k">for</span> <span class="p">(</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">];</span> <span class="n">j</span><span class="p">;</span> <span class="n">j</span> <span class="o">-=</span> <span class="n">j</span> <span class="o">&amp;</span> <span class="o">-</span><span class="n">j</span> <span class="p">)</span> <span class="n">s</span> <span class="o">+=</span> <span class="n">c</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+        <span class="n">ans</span> <span class="o">=</span> <span class="p">(</span> <span class="n">ans</span> <span class="o">+</span> <span class="mi">1ll</span> <span class="o">*</span> <span class="n">fac</span> <span class="o">*</span> <span class="n">s</span> <span class="p">)</span> <span class="o">%</span> <span class="n">mod</span><span class="p">,</span> <span class="n">fac</span> <span class="o">=</span> <span class="mi">1ll</span> <span class="o">*</span> <span class="n">fac</span> <span class="o">*</span> <span class="n">i</span> <span class="o">%</span> <span class="n">mod</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span> <span class="n">j</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">];</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">N</span><span class="p">;</span> <span class="n">j</span> <span class="o">+=</span> <span class="n">j</span> <span class="o">&amp;</span> <span class="o">-</span><span class="n">j</span> <span class="p">)</span> <span class="o">++</span><span class="n">c</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+    <span class="p">}</span> <span class="n">printf</span><span class="p">(</span> <span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">ans</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<h4 id="pascal">Pascal<a class="headerlink" href="#pascal" title="Permanent link">&para;</a></h4>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">var</span>
+<span class="n">n</span><span class="o">,</span> <span class="n">fac</span><span class="o">,</span> <span class="n">s</span><span class="o">,</span> <span class="n">ans</span><span class="o">,</span> <span class="n">i</span><span class="o">,</span> <span class="n">j</span><span class="o">:</span><span class="kt">longint</span><span class="o">;</span>
+<span class="n">a</span><span class="o">,</span> <span class="n">c</span><span class="o">:</span><span class="k">array</span><span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">1000000</span><span class="p">]</span> <span class="k">of</span> <span class="kt">longint</span><span class="o">;</span>
+<span class="k">begin</span>
+    <span class="nb">read</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">;</span> <span class="n">fac</span> <span class="o">:=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">ans</span> <span class="o">:=</span> <span class="mi">0</span><span class="o">;</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="o">:=</span> <span class="n">n</span> <span class="k">downto</span> <span class="mi">1</span> <span class="k">do</span>
+    <span class="k">begin</span>
+        <span class="nb">read</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">;</span>
+        <span class="n">c</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">:=</span> <span class="mi">0</span><span class="o">;</span>
+    <span class="k">end</span><span class="o">;</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="o">:=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">n</span> <span class="k">do</span>
+    <span class="k">begin</span>
+        <span class="n">j</span> <span class="o">:=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">;</span> <span class="n">s</span> <span class="o">:=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="k">while</span> <span class="n">j</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">do</span>
+        <span class="k">begin</span>
+            <span class="n">s</span> <span class="o">:=</span> <span class="n">s</span> <span class="o">+</span> <span class="n">c</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">;</span>
+            <span class="n">j</span> <span class="o">:=</span> <span class="n">j</span> <span class="o">-</span> <span class="p">(</span> <span class="n">j</span> <span class="k">and</span> <span class="o">-</span><span class="n">j</span> <span class="p">)</span><span class="o">;</span> 
+        <span class="k">end</span><span class="o">;</span>
+        <span class="n">ans</span> <span class="o">:=</span> <span class="p">(</span> <span class="n">QWORD</span><span class="p">(</span><span class="n">ans</span><span class="p">)</span> <span class="o">+</span> <span class="n">QWORD</span><span class="p">(</span><span class="n">fac</span><span class="p">)</span> <span class="o">*</span> <span class="n">QWORD</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="p">)</span> <span class="k">mod</span> <span class="mi">998244353</span><span class="o">;</span>
+        <span class="n">fac</span> <span class="o">:=</span> <span class="n">QWORD</span><span class="p">(</span><span class="n">fac</span><span class="p">)</span> <span class="o">*</span> <span class="n">QWORD</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">mod</span> <span class="mi">998244353</span><span class="o">;</span>
+        <span class="n">j</span> <span class="o">:=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">;</span>
+        <span class="k">while</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">n</span> <span class="k">do</span>
+        <span class="k">begin</span>
+            <span class="n">c</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">:=</span> <span class="n">c</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+            <span class="n">j</span> <span class="o">:=</span> <span class="n">j</span> <span class="o">+</span> <span class="p">(</span> <span class="n">j</span> <span class="k">and</span> <span class="o">-</span><span class="n">j</span> <span class="p">)</span><span class="o">;</span>
+        <span class="k">end</span><span class="o">;</span>
+    <span class="k">end</span><span class="o">;</span>
+    <span class="nb">writeln</span><span class="p">((</span><span class="n">ans</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="k">mod</span> <span class="mi">998244353</span><span class="p">)</span><span class="o">;</span>
+<span class="k">end</span><span class="o">.</span>
+</pre></div>
+</td></tr></table>
+
+<h2 id="2">2.逆康托展开<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<p>类似于进制转换，不断 <span><span class="MathJax_Preview">\%(n-i)!</span><script type="math/tex">\%(n-i)!</script></span>, <span><span class="MathJax_Preview">/(n-1)!</span><script type="math/tex">/(n-1)!</script></span>就可以得到A数组，然后就可以还原出原排列。  </p>
+<p><strong>Update on 2019.7.23</strong><br />
+<del>昨天刚刚集训回来，于是就来填坑了</del></p>
+<p><a href="https://www.luogu.org/problemnew/show/UVA11525">例题</a><br />
+这题十分好心地为我们省去了求出<span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span>数组的过程（否则要高精度除法？<br />
+问题说白了就是在每一个<span><span class="MathJax_Preview">[i,n]</span><script type="math/tex">[i,n]</script></span>区间内求<span><span class="MathJax_Preview">K</span><script type="math/tex">K</script></span>大值。可以使用权值线段树+二分来解决这一问题。这应该比较基础，所以看代码吧qaq。</p>
+<h3 id="_3">代码<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p><del>没怎么卡常数，本来想搞zkw线段树非递归减小常数，但是懒。。。</del></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">#include</span><span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="cp">#define MAXN 50005</span>
+
+<span class="kt">int</span> <span class="n">T</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">tr</span><span class="p">[</span><span class="n">MAXN</span> <span class="o">&lt;&lt;</span> <span class="mi">2</span><span class="p">];</span>
+
+<span class="kt">void</span> <span class="nf">Build</span><span class="p">(</span> <span class="kt">int</span> <span class="n">c</span><span class="p">,</span> <span class="kt">int</span> <span class="n">l</span><span class="p">,</span> <span class="kt">int</span> <span class="n">r</span> <span class="p">){</span> <span class="c1">//建树</span>
+    <span class="k">if</span> <span class="p">(</span> <span class="n">l</span> <span class="o">==</span> <span class="n">r</span> <span class="p">)</span> <span class="k">return</span> <span class="n">tr</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="kt">void</span><span class="p">();</span>
+    <span class="kt">int</span> <span class="n">mid</span><span class="p">((</span><span class="n">l</span> <span class="o">+</span> <span class="n">r</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">),</span> <span class="n">ls</span><span class="p">(</span><span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="p">),</span> <span class="n">rs</span><span class="p">(</span><span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span> <span class="o">|</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="n">Build</span><span class="p">(</span> <span class="n">ls</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">mid</span> <span class="p">),</span> <span class="n">Build</span><span class="p">(</span> <span class="n">rs</span><span class="p">,</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">r</span> <span class="p">),</span>
+    <span class="n">tr</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">tr</span><span class="p">[</span><span class="n">ls</span><span class="p">]</span> <span class="o">+</span> <span class="n">tr</span><span class="p">[</span><span class="n">rs</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">Get</span><span class="p">(</span> <span class="kt">int</span> <span class="n">c</span><span class="p">,</span> <span class="kt">int</span> <span class="n">l</span><span class="p">,</span> <span class="kt">int</span> <span class="n">r</span><span class="p">,</span> <span class="kt">int</span> <span class="n">k</span> <span class="p">){</span> <span class="c1">//找到k大值的同时删除k大值</span>
+    <span class="o">--</span><span class="n">tr</span><span class="p">[</span><span class="n">c</span><span class="p">];</span> <span class="k">if</span> <span class="p">(</span> <span class="n">l</span> <span class="o">==</span> <span class="n">r</span> <span class="p">)</span> <span class="k">return</span> <span class="n">l</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">mid</span><span class="p">((</span><span class="n">l</span> <span class="o">+</span> <span class="n">r</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">),</span> <span class="n">ls</span><span class="p">(</span><span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="p">),</span> <span class="n">rs</span><span class="p">(</span><span class="n">ls</span> <span class="o">|</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span> <span class="n">tr</span><span class="p">[</span><span class="n">ls</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">k</span> <span class="p">)</span> <span class="k">return</span> <span class="n">Get</span><span class="p">(</span> <span class="n">rs</span><span class="p">,</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">k</span> <span class="o">-</span> <span class="n">tr</span><span class="p">[</span><span class="n">ls</span><span class="p">]</span> <span class="p">);</span><span class="c1">//线段树上二分找到k大值</span>
+    <span class="k">return</span> <span class="n">Get</span><span class="p">(</span> <span class="n">ls</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">mid</span><span class="p">,</span> <span class="n">k</span> <span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="n">scanf</span><span class="p">(</span> <span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">T</span> <span class="p">);</span>
+    <span class="k">while</span><span class="p">(</span> <span class="n">T</span><span class="o">--</span> <span class="p">){</span>
+        <span class="n">scanf</span><span class="p">(</span> <span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">N</span> <span class="p">),</span> <span class="n">Build</span><span class="p">(</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">N</span> <span class="p">);</span>
+        <span class="k">for</span> <span class="p">(</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">s</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">N</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span> <span class="p">)</span>
+            <span class="n">scanf</span><span class="p">(</span> <span class="s">&quot;%d&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">s</span> <span class="p">),</span> <span class="n">printf</span><span class="p">(</span> <span class="s">&quot;%d%c&quot;</span><span class="p">,</span> <span class="n">Get</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">s</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s"> &quot;</span><span class="p">[</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">]</span> <span class="p">);</span>
+    <span class="p">}</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+                
+                  
+                
+              
+              
+                
+
+  
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../" title="学习" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  后退
+                </span>
+                学习
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../../black-tech/" title="写在前面" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  前进
+                </span>
+                写在前面
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2016 - 2019 louhc
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.2ba8dec4.js"></script>
+      
+        
+        
+          
+          <script src="../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+        <script src="../../_static/js/extra.js?v=12"></script>
+      
+        <script src="https://cdnjs.loli.net/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>
